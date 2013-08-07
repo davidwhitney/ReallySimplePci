@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ninject;
 using ReallySimplePci.OutboundProxy.ProxyInterceptors;
 using ReallySimpleProxy;
 
@@ -12,7 +13,7 @@ namespace ReallySimplePci.OutboundProxy
             var bodyProcessors = new List<Type> {typeof (InsertCreditCardNumbersIntoOutboundRequests)};
 
             var proxy = new ReallySimpleProxyHost(args, "ReallySimplePci.OutboundProxy");
-            proxy.Host("locahost", 12345, bodyProcessors);
+            proxy.Host("locahost", 12345, bodyProcessors, new List<Type>{typeof(LogIncomingRequests)});
         }
     }
 }

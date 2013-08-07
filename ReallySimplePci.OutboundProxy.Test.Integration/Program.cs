@@ -1,36 +1,67 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Net;
-using NUnit.Framework;
+using System.Text;
 
 namespace ReallySimplePci.OutboundProxy.Test.Integration
 {
-    [TestFixture]
-    public class Program
+    class Program
     {
-        [Test]
-        public void Main()
+        static void Main(string[] args)
         {
-            var url = "http://localhost:53465";
 
-            var request = (HttpWebRequest) WebRequest.Create(url);
-            request.Proxy = new WebProxy("localhost", 12345);
-            request.Headers.Add("X-Forwarded-Proto", "http");
-            request.Method = "POST";
-
-            var requestStream = request.GetRequestStream();
-            using (var writer = new StreamWriter(requestStream))
+            while (true)
             {
-                writer.Write("@CardNumber:1");
-                writer.Flush();
+                try
+                {
+                    var url = "http://www.google.co.uk";
+                    Console.WriteLine("Requesting " + url);
+
+                    var request = (HttpWebRequest) WebRequest.Create(url);
+                    request.Proxy = new WebProxy("localhost", 12345);
+                    request.Method = "GET";
+                    var outbody = string.Empty;// "@CardNumber:1";
+                    
+                    if (!string.IsNullOrWhiteSpace( outbody ))
+                    {
+                        request.Method = "POST"; 
+                        var requestStream = request.GetRequestStream();
+                        using (var writer = new StreamWriter(requestStream))
+                        {
+                            writer.Write(outbody);
+                            writer.Flush();
+                        }
+                    };
+
+                    request.Headers.Add("X-Forwarded-Proto", "https");
+
+                    var response = (HttpWebResponse) request.GetResponse();
+
+                    var body = string.Empty;
+                    var responseEncoding = Encoding.GetEncoding(response.CharacterSet);
+                    using (var sr = new StreamReader(response.GetResponseStream(), responseEncoding))
+                    {
+                        body = sr.ReadToEnd();
+                    }
+                    var status = (int)response.StatusCode;
+
+                    Console.WriteLine("Status code: " + status);
+                    Console.WriteLine("Body:");
+                    Console.WriteLine(body);
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+
+                Console.WriteLine("Try again, hit return...");
+                Console.ReadLine();
+
             }
 
-            var response = (HttpWebResponse) request.GetResponse();
-            using (var sr = new StreamReader(response.GetResponseStream()))
-            {
-                var body = sr.ReadToEnd();
-            }
 
-            var status = (int) response.StatusCode;
         }
     }
 }
+

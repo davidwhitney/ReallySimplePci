@@ -12,12 +12,16 @@ namespace ReallySimplePci.OutboundProxy.ProxyInterceptors
         private readonly ITwoWaySharedKeyEncryption _encryption;
         private readonly IEncryptionKeys _keys;
 
-        public InsertCreditCardNumbersIntoOutboundRequests(ICardDataStore dataStore, ITwoWaySharedKeyEncryption encryption, IEncryptionKeys keys)
+        public InsertCreditCardNumbersIntoOutboundRequests()
+        {
+            
+        }
+        /*public InsertCreditCardNumbersIntoOutboundRequests(ICardDataStore dataStore, ITwoWaySharedKeyEncryption encryption, IEncryptionKeys keys)
         {
             _dataStore = dataStore;
             _encryption = encryption;
             _keys = keys;
-        }
+        }*/
          
         public string ProcessBody(string body)
         {
