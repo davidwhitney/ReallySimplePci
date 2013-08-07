@@ -33,22 +33,16 @@ namespace ReallySimplePci.OutboundProxy.Test.Integration
                         }
                     };
 
-                    request.Headers.Add("X-Forwarded-Proto", "https");
+                    //request.Headers.Add("X-Forwarded-Proto", "https");
 
                     var response = (HttpWebResponse) request.GetResponse();
-
-                    var body = string.Empty;
-                    var responseEncoding = Encoding.GetEncoding(response.CharacterSet);
-                    using (var sr = new StreamReader(response.GetResponseStream(), responseEncoding))
-                    {
-                        body = sr.ReadToEnd();
-                    }
                     var status = (int)response.StatusCode;
-
                     Console.WriteLine("Status code: " + status);
-                    Console.WriteLine("Body:");
-                    Console.WriteLine(body);
-
+                    using (var sr = new StreamReader(response.GetResponseStream()))
+                    {
+                        var body = sr.ReadToEnd();
+                        Console.WriteLine(body);
+                    }
                 }
                 catch (Exception ex)
                 {
