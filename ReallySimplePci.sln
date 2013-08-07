@@ -10,6 +10,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{09FAD3
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReallySimplePci.Core", "ReallySimplePci.Core\ReallySimplePci.Core.csproj", "{51B0D634-2B91-4BC8-BAE6-42F26AB83CDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReallySimplePci.OutboundProxy.Test.Integration", "ReallySimplePci.OutboundProxy.Test.Integration\ReallySimplePci.OutboundProxy.Test.Integration.csproj", "{87A46123-870B-474B-A0EF-2C4482C50B73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReallySimplePci.OutboundProxy.Test.TargetWebsite", "ReallySimplePci.OutboundProxy.Test.TargetWebsite\ReallySimplePci.OutboundProxy.Test.TargetWebsite.csproj", "{31F73C38-8CDD-4D3D-831C-0FEEAF0D58F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +26,18 @@ Global
 		{7F1B2B45-820A-4298-B2A3-D2078649526C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F1B2B45-820A-4298-B2A3-D2078649526C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F1B2B45-820A-4298-B2A3-D2078649526C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51B0D634-2B91-4BC8-BAE6-42F26AB83CDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51B0D634-2B91-4BC8-BAE6-42F26AB83CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51B0D634-2B91-4BC8-BAE6-42F26AB83CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51B0D634-2B91-4BC8-BAE6-42F26AB83CDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87A46123-870B-474B-A0EF-2C4482C50B73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87A46123-870B-474B-A0EF-2C4482C50B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87A46123-870B-474B-A0EF-2C4482C50B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87A46123-870B-474B-A0EF-2C4482C50B73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31F73C38-8CDD-4D3D-831C-0FEEAF0D58F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31F73C38-8CDD-4D3D-831C-0FEEAF0D58F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31F73C38-8CDD-4D3D-831C-0FEEAF0D58F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31F73C38-8CDD-4D3D-831C-0FEEAF0D58F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
