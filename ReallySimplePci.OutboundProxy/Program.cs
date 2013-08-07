@@ -13,7 +13,7 @@ namespace ReallySimplePci.OutboundProxy
             var bodyProcessors = new List<Type> {typeof (InsertCreditCardNumbersIntoOutboundRequests)};
 
             var proxy = new ReallySimpleProxyHost(args, "ReallySimplePci.OutboundProxy");
-            proxy.Host("127.0.0.1", 12345, bodyProcessors, new List<Type>{typeof(LogIncomingRequests)});
+            proxy.Host("localhost", 44466, bodyProcessors, new List<Type>{typeof(LogIncomingRequests)});
         }
     }
 }

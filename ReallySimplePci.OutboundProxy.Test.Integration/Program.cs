@@ -18,7 +18,7 @@ namespace ReallySimplePci.OutboundProxy.Test.Integration
                     Console.WriteLine("Requesting " + url);
 
                     var request = (HttpWebRequest) WebRequest.Create(url);
-                    request.Proxy = new WebProxy("localhost", 12345);
+                    request.Proxy = new WebProxy("localhost", 44466);
                     request.Method = "GET";
                     var outbody = string.Empty;// "@CardNumber:1";
                     
